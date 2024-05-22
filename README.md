@@ -246,6 +246,28 @@ This document outlines the details for integrating the backend API endpoints wit
                   "amount": 50.00,
                   "paymentFreq": "monthly"
               }
+          ],
+          "appliances": [
+              {
+                "applianceId": 2,
+                "name": "Refrigerator",
+                "quantity": 1
+              },
+              {
+                "applianceId": 1,
+                "name": "Television",
+                "quantity": 1
+              },
+              {
+                "applianceId": 4,
+                "name": "Air Conditioner",
+                "quantity": 1
+              },
+              {
+                "applianceId": 5,
+                "name": "Lights",
+                "quantity": 2
+              }
           ]
       }
   }
@@ -392,6 +414,28 @@ This document outlines the details for integrating the backend API endpoints wit
                   "amount": 50.00,
                   "paymentFreq": "monthly"
               }
+          ],
+          "appliances": [
+              {
+                "applianceId": 2,
+                "name": "Refrigerator",
+                "quantity": 1
+              },
+              {
+                "applianceId": 1,
+                "name": "Television",
+                "quantity": 1
+              },
+              {
+                "applianceId": 4,
+                "name": "Air Conditioner",
+                "quantity": 1
+              },
+              {
+                "applianceId": 5,
+                "name": "Lights",
+                "quantity": 2
+              }
           ]
       }
   ]
@@ -428,6 +472,28 @@ This document outlines the details for integrating the backend API endpoints wit
             "paymentId": 1,
             "amount": 50.00,
             "paymentFreq": "monthly"
+        }
+    ],
+    "appliances": [
+        {
+          "applianceId": 2,
+          "name": "Refrigerator",
+          "quantity": 1
+        },
+        {
+          "applianceId": 1,
+          "name": "Television",
+          "quantity": 1
+        },
+        {
+          "applianceId": 4,
+          "name": "Air Conditioner",
+          "quantity": 1
+        },
+        {
+          "applianceId": 5,
+          "name": "Lights",
+          "quantity": 2
         }
     ]
 }
