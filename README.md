@@ -1,3 +1,5 @@
+---
+
 # API Integration Documentation
 
 This document outlines the details for integrating the backend API endpoints with the frontend application. The following endpoints and their respective data structures are explained to facilitate a smooth integration process.
@@ -41,16 +43,20 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Otp sent successfully"
+      "success": true,
+      "message": "Otp sent successfully",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "Failed to send email OTP"
+      "success": false,
+      "message": "Failed to send email OTP",
+      "errors": []
   }
   ```
 
@@ -69,16 +75,20 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Email confirmed"
+      "success": true,
+      "message": "Email confirmed",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "message": "Invalid or expired OTP"
+      "success": false,
+      "message": "Invalid or expired OTP",
+      "errors": []
   }
   ```
 
@@ -102,16 +112,20 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Personal Information Stored"
+      "success": true,
+      "message": "Personal Information Stored",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -132,19 +146,25 @@ This document outlines the details for integrating the backend API endpoints wit
 - Success:
   ```json
   {
-      "firstName": "John",
-      "lastName": "Doe",
-      "location": "New York",
-      "phoneNumber": "1234567890",
-      "gender": "Male",
-      "email": "user@example.com",
-      "password": ""
+      "success": true,
+      "message": "Request processed successfully",
+      "data": {
+          "firstName": "John",
+          "lastName": "Doe",
+          "location": "New York",
+          "phoneNumber": "1234567890",
+          "gender": "Male",
+          "email": "user@example.com",
+          "password": ""
+      }
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "message": "Personal Information Not Found"
+      "success": false,
+      "message": "Personal Information Not Found",
+      "errors": []
   }
   ```
 
@@ -166,16 +186,20 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Financial Information Stored"
+      "success": true,
+      "message": "Financial Information Stored",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -196,17 +220,23 @@ This document outlines the details for integrating the backend API endpoints wit
 - Success:
   ```json
   {
-      "homeOwner": true,
-      "salaryWorker": true,
-      "minSpend": 1000,
-      "maxSpend": 5000,
-      "interestDesc": "Looking for budget appliances"
+      "success": true,
+      "message": "Request processed successfully",
+      "data": {
+          "homeOwner": true,
+          "salaryWorker": true,
+          "minSpend": 1000,
+          "maxSpend": 5000,
+          "interestDesc": "Looking for budget appliances"
+      }
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "message": "Financial Information Not Found"
+      "success": false,
+      "message": "Financial Information Not Found",
+      "errors": []
   }
   ```
 
@@ -228,54 +258,59 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
+      "success": true,
       "message": "Appliance Information Stored",
-      "plan": {
-          "planId": 1,
-          "name": "Basic Plan",
-          "systemType": "Solar",
-          "description": "Basic solar plan",
-          "amount": 50.00,
-          "paymentId": 1,
-          "paymentFreq": "monthly",
-          "paymentPlans": [
-              {
-                  "paymentId": 1,
-                  "amount": 50.00,
-                  "paymentFreq": "monthly"
-              }
-          ],
-          "appliances": [
-              {
-                "applianceId": 2,
-                "name": "Refrigerator",
-                "quantity": 1
-              },
-              {
-                "applianceId": 1,
-                "name": "Television",
-                "quantity": 1
-              },
-              {
-                "applianceId": 4,
-                "name": "Air Conditioner",
-                "quantity": 1
-              },
-              {
-                "applianceId": 5,
-                "name": "Lights",
-                "quantity": 2
-              }
-          ]
+      "data": {
+          "plan": {
+              "planId": 1,
+              "name": "Basic Plan",
+              "systemType": "Solar",
+              "description": "Basic solar plan",
+              "amount": 50.00,
+              "paymentId": 1,
+              "paymentFreq": "monthly",
+              "paymentPlans": [
+                  {
+                      "paymentId": 1,
+                      "amount": 50.00,
+                      "paymentFreq": "monthly"
+                  }
+              ],
+              "appliances": [
+                  {
+                      "applianceId": 2,
+                      "name": "Refrigerator",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 1,
+                      "name": "Television",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 4,
+                      "name": "Air Conditioner",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 5,
+                      "name": "Lights",
+                      "quantity": 2
+                  }
+              ]
+          }
       }
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -296,16 +331,22 @@ This document outlines the details for integrating the backend API endpoints wit
 - Success:
   ```json
   {
-      "appliances": [
-          { "id": 1, "quantity": 2 },
-          { "id": 2, "quantity": 1 }
-      ]
+      "success": true,
+      "message": "Request processed successfully",
+      "data": {
+          "appliances": [
+              { "id": 1, "quantity": 2 },
+              { "id": 2, "quantity": 1 }
+          ]
+      }
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "message": "Appliance Information Not Found"
+      "success": false,
+      "message": "Appliance Information Not Found",
+      "errors": []
   }
   ```
 
@@ -318,21 +359,27 @@ This document outlines the details for integrating the backend API endpoints wit
 **Response:**
 - Success:
   ```json
-  [
-      {
-          "id": 1,
-          "name": "Air Conditioner"
-      },
-      {
-          "id": 2,
-          "name": "Refrigerator"
-      }
-  ]
+  {
+      "success": true,
+      "message": "Request processed successfully",
+      "data": [
+          {
+              "id": 1,
+              "name": "Air Conditioner"
+          },
+          {
+              "id": 2,
+              "name": "Refrigerator"
+          }
+      ]
+  }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -350,16 +397,22 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Appliance added successfully"
+      "success": true,
+      "message": "Appliance added successfully",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+
+
+      "errors": []
   }
   ```
 
@@ -377,16 +430,20 @@ This document outlines the details for integrating the backend API endpoints wit
 ```
 
 **Response:**
-- Success: 
+- Success:
   ```json
   {
-      "message": "Appliance deleted successfully"
+      "success": true,
+      "message": "Appliance deleted successfully",
+      "data": []
   }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -399,51 +456,57 @@ This document outlines the details for integrating the backend API endpoints wit
 **Response:**
 - Success:
   ```json
-  [
-      {
-          "planId": 1,
-          "name": "Basic Plan",
-          "systemType": "Solar",
-          "description": "Basic solar plan",
-          "amount": 50.00,
-          "paymentId": 1,
-          "paymentFreq": "monthly",
-          "paymentPlans": [
-              {
-                  "paymentId": 1,
-                  "amount": 50.00,
-                  "paymentFreq": "monthly"
-              }
-          ],
-          "appliances": [
-              {
-                "applianceId": 2,
-                "name": "Refrigerator",
-                "quantity": 1
-              },
-              {
-                "applianceId": 1,
-                "name": "Television",
-                "quantity": 1
-              },
-              {
-                "applianceId": 4,
-                "name": "Air Conditioner",
-                "quantity": 1
-              },
-              {
-                "applianceId": 5,
-                "name": "Lights",
-                "quantity": 2
-              }
-          ]
-      }
-  ]
+  {
+      "success": true,
+      "message": "Request processed successfully",
+      "data": [
+          {
+              "planId": 1,
+              "name": "Basic Plan",
+              "systemType": "Solar",
+              "description": "Basic solar plan",
+              "amount": 50.00,
+              "paymentId": 1,
+              "paymentFreq": "monthly",
+              "paymentPlans": [
+                  {
+                      "paymentId": 1,
+                      "amount": 50.00,
+                      "paymentFreq": "monthly"
+                  }
+              ],
+              "appliances": [
+                  {
+                      "applianceId": 2,
+                      "name": "Refrigerator",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 1,
+                      "name": "Television",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 4,
+                      "name": "Air Conditioner",
+                      "quantity": 1
+                  },
+                  {
+                      "applianceId": 5,
+                      "name": "Lights",
+                      "quantity": 2
+                  }
+              ]
+          }
+      ]
+  }
   ```
-- Error: 
+- Error:
   ```json
   {
-      "error": "An unexpected error occurred"
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
   }
   ```
 
@@ -515,9 +578,7 @@ fetch('https://your-backend-url/applianceInfo', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
-   
-
- },
+    },
     body: JSON.stringify(data)
 })
 .then(response => response.json())
@@ -540,4 +601,6 @@ fetch(`https://your-backend-url/personalInfo?email=${email}`, {
 .catch(error => console.error('Error:', error));
 ```
 
-This documentation should help you seamlessly integrate the frontend with the backend APIs. If you have any questions or encounter any issues, please reach out for further assistance.# API Integration Documentation
+This documentation should help you seamlessly integrate the frontend with the backend APIs. If you have any questions or encounter any issues, please reach out for further assistance.
+
+---
