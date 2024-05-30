@@ -16,6 +16,10 @@ This document outlines the details for integrating the backend API endpoints wit
     - [Get Financial Info](#get-financial-info)
     - [Save Appliance Info](#save-appliance-info)
     - [Get Appliance Info](#get-appliance-info)
+    - [Choose Plan](#choose-plan)
+    - [Sign In](#sign-in)
+    - [Forgot Password](#forgot-password)
+    - [Password Reset](#password-reset)
     - [Get Appliances](#get-appliances)
     - [Add Appliance](#add-appliance)
     - [Delete Appliance](#delete-appliance)
@@ -346,6 +350,147 @@ This document outlines the details for integrating the backend API endpoints wit
   {
       "success": false,
       "message": "Appliance Information Not Found",
+      "errors": []
+  }
+  ```
+
+### Choose Plan
+
+**Endpoint:** `POST /createUser`
+
+**Description:** recieves user's chosen plan and payment id, persist user's info into the DB .
+
+**Request Body:**
+```json
+{
+    "planId": "1",
+    "paymetId" "1",
+}
+```
+
+**Response:**
+- Success:
+  ```json
+  {
+      "success": true,
+      "message": "User Created Successfully",
+      "data": [],
+      "token": <user's token>
+  }
+  ```
+- Error:
+  ```json
+  {
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
+  }
+  ```
+
+### Sign In
+
+**Endpoint:** `POST /login`
+
+**Description:** Authenticate user using his password and email.
+
+**Request Body:**
+```json
+{
+    "email": "example@gmail.com",
+    "password" "password",
+}
+```
+
+**Response:**
+- Success:
+  ```json
+  {
+      "success": true,
+      "message": "User Login Successful",
+      "data": [],
+      "token": <user's token>
+  }
+  ```
+- Error 401, Invalid credentials:
+  ```json
+  {
+      "success": false,
+      "message": "Invalid Credentials",
+      "errors": []
+  }
+  ```
+- Error:
+  ```json
+  {
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
+  }
+  ```
+
+### Forgot Password
+
+**Endpoint:** `POST /password/confirmOtp`
+
+**Description:** Using the sendOtp path, send an otp to the user, to confirm the otp for the password reset feature, use this endpoint under discussion (password/confirmOtp).
+
+**Request Body:**
+```json
+{
+    "email": "example@gmail.com",
+    "otp" "<user's otp>",
+}
+```
+
+**Response:**
+- Success:
+  ```json
+  {
+      "success": true,
+      "message": "Email Confirmed",
+      "data": [],
+      "token": <user's token>
+  }
+  ```
+- Error:
+  ```json
+  {
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
+  }
+  ```
+
+### Password Reset
+
+**Endpoint:** `POST /password/reset`
+
+**Description:** Resets user's password.
+
+**Request Body:**
+```json
+{
+    "email": "example@gmail.com",
+    "otp": "<user's otp>",
+    "password": "<user's new password>"
+}
+```
+
+**Response:**
+- Success:
+  ```json
+  {
+      "success": true,
+      "message": "Email Confirmed",
+      "data": [],
+      "token": <user's token>
+  }
+  ```
+- Error:
+  ```json
+  {
+      "success": false,
+      "message": "An unexpected error occurred",
       "errors": []
   }
   ```
