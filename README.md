@@ -400,6 +400,7 @@ This document outlines the details for integrating the backend API endpoints wit
 {
     Authorization: "Bearer <user's token>",
 }
+```
 
 **Request Body:**
 ```json
