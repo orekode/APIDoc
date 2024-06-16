@@ -17,6 +17,7 @@ This document outlines the details for integrating the backend API endpoints wit
     - [Save Appliance Info](#save-appliance-info)
     - [Get Appliance Info](#get-appliance-info)
     - [Choose Plan](#choose-plan)
+    - [Book Inspection](#book-inspection)
     - [Sign In](#sign-in)
     - [Forgot Password](#forgot-password)
     - [Password Reset](#password-reset)
