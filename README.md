@@ -364,7 +364,8 @@ This document outlines the details for integrating the backend API endpoints wit
 ```json
 {
     "planId": "1",
-    "paymetId" "1",
+    "paymetId": "1",
+    "email": <User's email>
 }
 ```
 
@@ -379,6 +380,56 @@ This document outlines the details for integrating the backend API endpoints wit
   }
   ```
 - Error:
+  ```json
+  {
+      "success": false,
+      "message": "An unexpected error occurred",
+      "errors": []
+  }
+  ```
+
+### Book Inspection
+
+**Endpoint:** `POST /inspection`
+
+**Description:** Booking for a physical inspection of the user's facility.
+
+**Request Header:**
+```json
+{
+    Authorization: "Bearer <user's token>",
+}
+
+**Request Body:**
+```json
+{
+    "date": <booking date object>,
+    "startTime": <start time: "5:00pm">,
+    "endTime":  <end time: "6:45pm">,
+    "meridiem": <"afternoon" : "morning" : "evening">,
+    "location": <user's address>,
+    "landMark": <description of an obvious/popular structure to help with the given address>
+}
+```
+
+**Response:**
+- Success:
+  ```json
+  {
+      "success": true,
+      "message": "Request processed successfully",
+      "data": {
+        "id",
+        "date",
+        "startTime",
+        "endTime",
+        "meridiem",
+        "location",
+        "landMark",
+      },
+  }
+  ```
+- Error 500:
   ```json
   {
       "success": false,
