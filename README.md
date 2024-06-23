@@ -405,10 +405,8 @@ This document outlines the details for integrating the backend API endpoints wit
 **Request Body:**
 ```json
 {
-    "date": <booking date object>,
-    "startTime": <start time: "5:00pm">,
-    "endTime":  <end time: "6:45pm">,
-    "meridiem": <"afternoon" : "morning" : "evening">,
+    "bookingDate": <booking date object>,
+    "timeSlot": <start time: "5:00pm">,
     "location": <user's address>,
     "landMark": <description of an obvious/popular structure to help with the given address>
 }
@@ -501,8 +499,6 @@ This document outlines the details for integrating the backend API endpoints wit
   {
       "success": true,
       "message": "Email Confirmed",
-      "data": [],
-      "token": <user's token>
   }
   ```
 - Error:
@@ -534,9 +530,7 @@ This document outlines the details for integrating the backend API endpoints wit
   ```json
   {
       "success": true,
-      "message": "Email Confirmed",
-      "data": [],
-      "token": <user's token>
+      "message": "Password Reset successful",
   }
   ```
 - Error:
